@@ -1,0 +1,95 @@
+{% load static %}
+{% block content %}
+{% include 'header.html' %}
+
+
+    <!-- Navbar End -->
+{% if status %}
+<script>
+alert("Registered succesfully");
+</script>
+{% endif %}
+
+    <!-- Hero Start -->
+    <div class="container-fluid bg-primary p-5 hero-header mb-5">
+        <div class="row py-5">
+           
+        </div>
+    </div>
+    <!-- Hero End -->
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid" >
+        <div class="container">
+            <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+                <h1 class="display-5 mb-0"> View Details</h1>
+            </div>
+            <div class="row g-7">
+                <div class="">
+                    <div class="bg-light rounded p-5">
+					<center>
+                         <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">id</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col">date</th>
+                                        <th scope="col">Apply</th>
+                                      
+
+                                       
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for i in res %}
+                                    <tr>
+                                        <td>{{i.id}}</td>
+                                        <td>{{i.name}}</td>
+                                        <td>{{i.description}}</td>
+                                        <td>{{i.date}}</td>
+										
+                                       
+                                    <td><a href="{% url 'apply' id=i.id %}">Apply</a></td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table></center>
+						
+						
+                    </div>
+                </div>
+            
+
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+  <script>  
+        function validateForm() {  
+            //collect form data in JavaScript variables  
+           
+            var name1 = document.getElementById("fname").value;  
+            
+              
+            //check empty first name field  
+            if(name1 == "") {  
+              document.getElementById("blankMsg").innerHTML = "**Fill the first name";  
+              return false;  
+            }  
+              
+            //character data validation  
+            
+             else {  
+              alert ("successfully registred");  
+               
+            }  
+         }  
+        </script>  
+
+
+    <!-- Footer Start -->
+    {% include 'footer.html' %}
+	{% endblock %}

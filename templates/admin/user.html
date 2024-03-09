@@ -1,0 +1,119 @@
+
+{% load static %}
+{% block content %}
+{% include 'admin/menu.html' %}
+
+
+
+            <!-- Form Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <br>
+                    <div class="col-sm-12 col-xl-8">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h1 class="mb-4">Staff Form</h1>
+                            <form method="post" action="adduser" onsubmit ="return validateForm()"enctype="multipart/form-data">
+{% csrf_token %}
+        {{form.as_p}}
+                                <div class="row mb-3">
+                                    <label for="inputName" class="col-sm-4 col-form-label">Name</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" required name="name" id="fname">
+                                    </div>
+                                </div>
+                                
+								
+								 <div class="row mb-3">
+                                    <label for="inputName" class="col-sm-4 col-form-label">User Name</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" required name="username" id="fname">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputEmail3" pattern="[a-z0-9._-]+@[a-z]+\.[a-z]{2,4}$" class="col-sm-4 col-form-label">Email</label>
+                                    <div class="col-sm-8">
+                                        <input type="email" class="form-control" required name="email" id="inputEmail3">
+                                    </div>
+                                </div>
+                                  <div class="row mb-3">
+                                    <label for="inputPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="col-sm-4 col-form-label">Password</label>
+                                    <div class="col-sm-8">
+                                        <input type="password" class="form-control" required name="password" id="inputPassword">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputPhoneNumber" class="col-sm-4 col-form-label">PhoneNo</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" pattern="[6789][0-9]{9}" required name="phone" id="inputPhoneNumber">
+                                    </div>
+                                </div>
+                                
+                               
+                                
+                                <input type="submit" class="btn btn-primary" value="Submit" name="submit">
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Form End -->
+            <br>
+            <br><br><br>
+            <br>
+            <br>
+
+
+
+
+
+<script>  
+function validateForm() {  
+    //collect form data in JavaScript variables  
+      
+    var name1 = document.getElementById("fname").value;  
+      
+    //check empty first name field  
+    if(name1 == "") {  
+      document.getElementById("blankMsg").innerHTML = "**Fill the first name";  
+      return false;  
+    }  
+      
+else {  
+      alert (" successfully added");  
+    }  
+ }  
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% include 'footer.html' %}
+{% endblock %}
+</body>
+
+</html>
